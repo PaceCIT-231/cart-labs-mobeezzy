@@ -20,9 +20,9 @@ function addToCart(cookie) {
    //add the correct price to the currentPrice variable
 
    if (cookie == "peanut butter") {
-        currentPrice == currrentPrice + 20 
+        currentPrice == currentPrice + 20 
    } else if (cookie == "sandles") {
-        currentPrice == curentPrice +30
+        currentPrice == currentPrice +30
    } else if ( cookie ="party press"){  
    currentPrice = currentPrice +35
    } else if (cookie == "chocolate chip") {
