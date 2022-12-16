@@ -1,21 +1,28 @@
-let currentPrice=0, itemCount=0
+const cart = {
+    currentPrice:0,
+    items: [], 
+    additem: function(cookie,price) {
+
+        this.items.push(cookie)
+
+        this.currentPrice=this.currentPrice+price
+},
+clear:function() {
+    this.currentPrice=0
+    this.items=[]
+},
+}
 
 function addToCart(cookie) {
     /*PRICES
     peanut butter:20
     sandies:30
     party press:35
-    chocolate chip:25
     */
    
     console.log('The user is adding this type of cookie tp their cart: ', cookie)
 
    //add 1 to the itemCount variable
-
-   itemCount = itemCount+1
-   console.log(itemCount)
-
-   document.getElementById("cartItems").innerHTML = itemCount
 
    
    
@@ -30,10 +37,10 @@ function addToCart(cookie) {
    } else if (cookie == "chocolate chip") {
     currentPrice = currentPrice = 25
 }
+document.querySelector(".hoverText").innerHTML = cart.currentPrice
+console.log(cart)
+document.getElementById("cartItems").innerHTML = cart.items.length
 
-document.querySelector(".hoverText").innerHTML = cureentPrice
-
-console.log(currentPrice)
 }
 
 
@@ -41,12 +48,11 @@ function checkout() {
     console.log ('User is checking out.')
     //let your customer know how many items they are purchasing and the price
     window.alert(`You have a total of ${itemCount} items that will cost ${currentPrice}. Thank you for shopping with us`)
-
-    currentPrice = 0
-    itemCount = 0
-
-    document.getElementById("cartItems").innerHTML = itemCount
-    document.querySelector(".hoverText").innerHTML = currentPrice
+    prompt("Please provide your name and address./n Thank you for shopping with us!")
+    cart.clear()
+    document.querySelector(".hoverText").innerHTML = cart.currentPrice
+    console.log(cart)
+    document.getElementById("cartItems").innerHTML = cart.items.length
 }
 
 function darkmode() {
